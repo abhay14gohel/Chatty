@@ -32,7 +32,7 @@ app.get("*", (req, res) => {
   res.sendFile(indexPath);
 });
 
-const server = app.listen(5000, () => {
+const server = app.listen(port, () => {
   console.log(`Server.js: Success-Server running at ${port}`.bgGreen.bold);
 });
 
