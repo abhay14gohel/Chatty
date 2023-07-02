@@ -19,10 +19,6 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-// error handling
-app.use(notFound);
-app.use(errorHandler);
-
 // static files
 const staticPath = path.join(__dirname, "../frontend/build");
 const indexPath = path.join(__dirname, "../frontend/build/index.html");
@@ -31,6 +27,10 @@ app.use(express.static(staticPath));
 app.get("*", (req, res) => {
   res.sendFile(indexPath);
 });
+
+// error handling
+app.use(notFound);
+app.use(errorHandler);
 
 const server = app.listen(port, () => {
   console.log(`Server.js: Success-Server running at ${port}`.bgGreen.bold);
